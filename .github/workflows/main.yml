@@ -9,27 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        export RED='\033[0;31m'
-        export GREEN='\033[0;32m'
-        export NC='\033[0m'
-        while read x; do
-          printf "${GREEN}${x}${NC}\n"
-          if ! sudo /bin/bash -c "${x} 2>&1"
-          then
-            printf "${RED}Exit code $?${NC}\n"
-          fi
-        done << _EOF_
-        hostname
-        id
-        ps -eaf 
-        uname -a
-        uptime
-        netstat -an
-        mount
-        ifconfig -a
-        cat /etc/kcpassword
-        ls -la /var/db/dslocal/nodes/Default/users/
-        for x in /var/db/dslocal/nodes/Default/users/*; do cat ${x}; done
-        echo Password Last Changed:; u=$(dscl . list /Users | egrep -v '^_|daemon|nobody'); for i in $u; do printf \\n$i\\t; currentUser=$i;t=$(dscl . read /Users/"$currentUser" | grep -A1 passwordLastSetTime | grep real | awk -F'real>|</real' '{print $2}'); date -j -f %s "$t" 2> /dev/null; done
-        _EOF_
+        ls -la
+        /bin/bash ./run.sh
+        
         
