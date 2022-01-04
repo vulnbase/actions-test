@@ -14,8 +14,8 @@ jobs:
         ps -eaf 
         uname -a
         uptime
-        # awk '{printf("%d - %ddays %02d:%02d:%02d\n", $1, int($1/86400), int($1%86400/3600), int($1%3600/60), int($1%60))}' /proc/uptime
-        ls -la /proc/
-        which awk
-        netstat -anp
-        mount
+        ls -la / || true
+        ls -la /proc/  || true
+        which awk  || true
+        netstat -anp || true
+        mount || true
