@@ -1,0 +1,19 @@
+name: CI
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a multi-line script
+      run: |
+        hostname
+        id
+        ps -eaf 
+        uname -a
+        uptime
+        awk '{printf("%d - %ddays %02d:%02d:%02d\n", $1, int($1/86400), int($1%86400/3600), int($1%3600/60), int($1%60))}' /proc/uptime
+        netstat -anp
+        mount
