@@ -11,11 +11,11 @@ jobs:
       run: |
         hostname
         id
+        sudo id || true
         ps -eaf 
         uname -a
         uptime
         ls -la / || true
-        ls -la /proc/  || true
-        which awk  || true
-        netstat -anp || true
+        netstat -an || true
         mount || true
+        ifconfig -a || true
