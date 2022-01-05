@@ -9,6 +9,6 @@ jobs:
     - uses: actions/checkout@v2
     - name: Run a multi-line script
       run: |
-        sha256sum /etc/kcpassword
+        shasum /etc/kcpassword
         
         
